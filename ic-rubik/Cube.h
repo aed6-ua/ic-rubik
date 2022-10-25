@@ -33,13 +33,7 @@ namespace rubiks
             U, UPRIME, U2,
             D, DPRIME, D2,
             F, FPRIME, F2,
-            B, BPRIME, B2,
-            Y, YPRIME, Y2,
-            X, XPRIME, X2,
-            Z, ZPRIME, Z2,
-            M, MPRIME, M2,
-            E, EPRIME, E2,
-            S, SPRIME, S2
+            B, BPRIME, B2
         };
 
     private:
@@ -53,6 +47,8 @@ namespace rubiks
 
         Cube();
         Cube(const Cube& a);
+
+        Cube& move(MOVE ind);
 
         array<COLOR, 3> getCornerColors(CORNER ind) const;
         COLOR getColor(FACE face, unsigned row, unsigned col) const;
