@@ -3,7 +3,7 @@
 #include <string>
 
 
-bool bfs(rubiks::Cube cube) {
+bool bfs(rubiks::Cube &cube) {
     rubiks::Cube::MOVE moves[] = {
             rubiks::Cube::MOVE::L, rubiks::Cube::MOVE::LPRIME, rubiks::Cube::MOVE::L2,
             rubiks::Cube::MOVE::R, rubiks::Cube::MOVE::RPRIME, rubiks::Cube::MOVE::R2,
@@ -13,6 +13,7 @@ bool bfs(rubiks::Cube cube) {
             rubiks::Cube::MOVE::B, rubiks::Cube::MOVE::BPRIME, rubiks::Cube::MOVE::B2
     };
     std::queue<rubiks::Cube> q;
+    q.push(cube);
     int contador = 0;
     while (!q.empty())
     {
@@ -36,10 +37,8 @@ bool bfs(rubiks::Cube cube) {
 int main(int argc, char* argv[]) {
 
     rubiks::Cube cube;
-
-
     
-    if (bfs(cube.u()))
+    if (bfs(cube))
         printf("Is solved");
     else
         printf("Not solved");
