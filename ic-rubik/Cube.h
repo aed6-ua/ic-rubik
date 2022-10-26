@@ -91,6 +91,7 @@ namespace rubiks
         Cube& dPrime();
         Cube& d2();
 
+        friend std::ostream& operator<<(std::ostream&, const MOVE&);
         friend std::ostream& operator<<(std::ostream&, const Cube&);
     };
 }

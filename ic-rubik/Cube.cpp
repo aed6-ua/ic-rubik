@@ -671,6 +671,69 @@ namespace rubiks
         return os;
     }
 
+    std::ostream& operator<<(std::ostream& os, const Cube::MOVE& move) {
+        switch (move)
+        {
+        case Cube::MOVE::L:
+            os << "L";
+            return os;
+        case Cube::MOVE::LPRIME:
+            os << "L'";
+            return os;
+        case Cube::MOVE::L2:
+            os << "L2";
+            return os;
+        case Cube::MOVE::R:
+            os << "R";
+            return os;
+        case Cube::MOVE::RPRIME:
+            os << "R'";
+            return os;
+        case Cube::MOVE::R2:
+            os << "R2";
+            return os;
+        case Cube::MOVE::U:
+            os << "U";
+            return os;
+        case Cube::MOVE::UPRIME:
+            os << "U'";
+            return os;
+        case Cube::MOVE::U2:
+            os << "U2";
+            return os;
+        case Cube::MOVE::D:
+            os << "D";
+            return os;
+        case Cube::MOVE::DPRIME:
+            os << "D'";
+            return os;
+        case Cube::MOVE::D2:
+            os << "D2";
+            return os;
+        case Cube::MOVE::F:
+            os << "F";
+            return os;
+        case Cube::MOVE::FPRIME:
+            os << "F'";
+            return os;
+        case Cube::MOVE::F2:
+            os << "F2";
+            return os;
+        case Cube::MOVE::B:
+            os << "B";
+            return os;
+        case Cube::MOVE::BPRIME:
+            os << "B'";
+            return os;
+        case Cube::MOVE::B2:
+            os << "B2";
+            return os;
+        default:
+            throw RubiksCubeException("Invalid face turn index.");
+        }
+        return os;
+    }
+
     std::ostream& operator<<(std::ostream& os, const Cube& cube) {
         array<Cube::COLOR, 3> ulb = cube.getCornerColors(Cube::CORNER::ULB);
         array<Cube::COLOR, 3> urb = cube.getCornerColors(Cube::CORNER::URB);
