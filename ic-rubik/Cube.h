@@ -9,6 +9,8 @@
 using std::array;
 #include <algorithm>
 using std::swap;
+#include <ostream>
+#include <iostream>
 
 namespace rubiks
 {
@@ -25,6 +27,7 @@ namespace rubiks
         };
         enum class FACE : uint8_t { UP, LEFT, FRONT, RIGHT, BACK, DOWN };
         enum class COLOR : uint8_t { WHITE, GREEN, RED, BLUE, ORANGE, YELLOW };
+        friend std::ostream& operator<<(std::ostream&, const COLOR&);
         enum class CORNER : uint8_t { ULB, URB, URF, ULF, DLF, DLB, DRB, DRF };
         enum class MOVE : uint8_t
         {
@@ -87,6 +90,8 @@ namespace rubiks
         Cube& d();
         Cube& dPrime();
         Cube& d2();
+
+        friend std::ostream& operator<<(std::ostream&, const Cube&);
     };
 }
 #endif

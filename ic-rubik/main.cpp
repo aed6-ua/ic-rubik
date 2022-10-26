@@ -1,6 +1,7 @@
 #include "Cube.h"
 #include <queue>
 #include <string>
+#include <iostream>
 
 
 bool bfs(rubiks::Cube &cube) {
@@ -19,9 +20,13 @@ bool bfs(rubiks::Cube &cube) {
     {
         rubiks::Cube exploring = q.front();
         q.pop();
-        if (exploring.isSolved())
+        if (exploring.isSolved()) {
+            std::cout << exploring << std::endl;
             return true;
+            
+        }
         contador++;
+
         printf("%d", contador);
         for (int i=0; i < 18; i++)
         {
@@ -37,6 +42,8 @@ bool bfs(rubiks::Cube &cube) {
 int main(int argc, char* argv[]) {
 
     rubiks::Cube cube;
+    cube.u();
+    std::cout << cube << std::endl;
     
     if (bfs(cube))
         printf("Is solved");

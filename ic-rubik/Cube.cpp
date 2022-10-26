@@ -638,4 +638,57 @@ namespace rubiks
 
         return *this;
     }
+    
+    const std::string reset("\033[0m");
+    const std::string red("\033[0;31m");
+    const std::string blue("\033[0;34m");
+    const std::string yellow("\033[0;33m");
+    const std::string orange("\033[0;35m");
+    const std::string green("\033[0;32m");
+
+    std::ostream& operator<<(std::ostream& os, const Cube::COLOR& color) {
+        switch (color)
+        {
+        case Cube::COLOR::BLUE :
+            os << blue << "B" << reset;
+            break;
+        case Cube::COLOR::WHITE:
+            os << "W";
+            break;
+        case Cube::COLOR::YELLOW:
+            os << yellow << "Y" << reset;
+            break;
+        case Cube::COLOR::ORANGE:
+            os << orange << "O" << reset;
+            break;
+        case Cube::COLOR::RED:
+            os << red << "R" << reset;
+            break;
+        case Cube::COLOR::GREEN:
+            os << green << "G" << reset;
+            break;
+        }
+        return os;
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Cube& cube) {
+        array<Cube::COLOR, 3> ulb = cube.getCornerColors(Cube::CORNER::ULB);
+        array<Cube::COLOR, 3> urb = cube.getCornerColors(Cube::CORNER::URB);
+        array<Cube::COLOR, 3> urf = cube.getCornerColors(Cube::CORNER::URF);
+        array<Cube::COLOR, 3> ulf = cube.getCornerColors(Cube::CORNER::ULF);
+        array<Cube::COLOR, 3> dlf = cube.getCornerColors(Cube::CORNER::DLF);
+        array<Cube::COLOR, 3> dlb = cube.getCornerColors(Cube::CORNER::DLB);
+        array<Cube::COLOR, 3> drb = cube.getCornerColors(Cube::CORNER::DRB);
+        array<Cube::COLOR, 3> drf = cube.getCornerColors(Cube::CORNER::DRF);
+        os << "      | " << ulb[0] << " " << urb[0] << " |" << endl;
+        os << "      | " << ulf[0] << " " << urf[0] << " |" << endl;
+        os << "       -----" << endl;
+        os << "| " << ulb[1] << " " << ulf[1] << " | " << ulf[2] << " " << urf[2] << " | " << urf[1] << " " << urb[1] << " | " << urb[2] << " " << ulb[2] << " |" << endl;
+        os << "| " << dlb[1] << " " << dlf[1] << " | " << dlf[2] << " " << drf[2] << " | " << drf[1] << " " << drb[1] << " | " << drb[2] << " " << dlb[2] << " |" << endl;
+        os << " ----- ----- ----- -----" << endl;
+        os << "      | " << dlf[0] << " " << drf[0] << " |" << endl;
+        os << "      | " << dlb[0] << " " << drb[0] << " |" << endl;
+
+        return os;
+    }
 }
