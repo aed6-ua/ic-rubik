@@ -60,6 +60,8 @@ namespace rubiks
         uint8_t getCornerIndex(CORNER ind) const;
         uint8_t getCornerOrientation(CORNER ind) const;
 
+        string getMove(MOVE ind) const;
+
         bool isSolved() const;
 
         ~Cube() {};
