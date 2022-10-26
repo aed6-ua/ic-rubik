@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <chrono>
 
 
 class Node
@@ -145,9 +146,13 @@ int main(int argc, char* argv[]) {
     cube.l();
     std::cout << cube << std::endl;
     
+    auto start = std::chrono::high_resolution_clock::now();
     if (bfs(cube))
         printf("Is solved");
     else
         printf("Not solved");
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::cout << "\nTime: " << duration.count() << " microseconds" << std::endl;
     return 0;
 }
