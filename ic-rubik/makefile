@@ -6,3 +6,6 @@ all:
 
 run:
 	./main
+
+clean:
+	rm -f main *.o
