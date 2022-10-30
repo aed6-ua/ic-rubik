@@ -131,6 +131,7 @@ bool bfs(rubiks::Cube &cube) {
             q.push(hijo);
         }
     }
+    return false;
 }
 
 
