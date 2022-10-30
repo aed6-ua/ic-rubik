@@ -146,6 +146,8 @@ int main(int argc, char* argv[]) {
     cube.f();
     cube.r();
     cube.l();
+    cube.r();
+    cube.f2();
     std::cout << cube << std::endl;
     
     auto start = std::chrono::high_resolution_clock::now();
