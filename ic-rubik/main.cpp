@@ -138,6 +138,7 @@ bool bfs(rubiks::Cube &cube) {
 int main(int argc, char* argv[]) {
 
     rubiks::Cube cube;
+    //Mezclar cubo
     cube.u();
     cube.r();
     cube.lPrime();
